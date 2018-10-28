@@ -1,12 +1,6 @@
 require 'test_helper'
 
 class FoodTest < ActiveSupport::TestCase
-  test 'fixtures are valid' do
-    foods.each do |food|
-      assert food.valid?
-    end
-  end
-
   test 'Food must have a name' do
     new_food = Food.new
     assert_not new_food.valid?

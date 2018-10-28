@@ -1,12 +1,6 @@
 require 'test_helper'
 
 class ParkTest < ActiveSupport::TestCase
-  test 'fixtures are valid' do
-    parks.each do |park|
-      assert park.valid?
-    end
-  end
-
   test 'Park must have a key' do
     new_park = Park.new(name: 'New Park', country: 'CA')
     assert_not new_park.valid?

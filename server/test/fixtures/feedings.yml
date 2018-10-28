@@ -1,0 +1,15 @@
+one:
+  food: bugs
+  amount: 1.5
+  duck_count: 1
+  time: 2018-10-28 04:37:40
+  park: one
+  daily: false
+
+two:
+  food: berries
+  amount: 1.5
+  duck_count: 12
+  time: 2018-10-28 04:37:40
+  park: two
+  daily: true

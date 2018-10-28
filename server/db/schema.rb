@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_28_035750) do
+ActiveRecord::Schema.define(version: 2018_10_28_043740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "feedings", force: :cascade do |t|
+    t.bigint "food_id", null: false
+    t.float "amount", null: false
+    t.integer "duck_count", null: false
+    t.datetime "time", null: false
+    t.bigint "park_id", null: false
+    t.boolean "daily", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["food_id"], name: "index_feedings_on_food_id"
+    t.index ["park_id"], name: "index_feedings_on_park_id"
+  end
 
   create_table "foods", force: :cascade do |t|
     t.string "name", default: "", null: false
@@ -29,4 +42,6 @@ ActiveRecord::Schema.define(version: 2018_10_28_035750) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "feedings", "foods"
+  add_foreign_key "feedings", "parks"
 end
