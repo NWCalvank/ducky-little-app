@@ -1,7 +1,9 @@
 one:
+  key: P1
   name: Park One
   country: CA
 
 two:
+  key: P2
   name: Park Two
   country: US

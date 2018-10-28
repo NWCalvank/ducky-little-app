@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2018_10_27_205022) do
   enable_extension "plpgsql"
 
   create_table "parks", force: :cascade do |t|
+    t.string "key", default: "", null: false
     t.string "name", default: "", null: false
     t.string "country", default: "", null: false
     t.datetime "created_at", null: false

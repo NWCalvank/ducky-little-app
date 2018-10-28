@@ -2,7 +2,7 @@
   <div id="app">
     <Header msg="Welcome"/>
     <select v-model="selectedPark">
-      <option v-for="park in parks" v-bind:value="park.id">
+      <option v-for="park in parks" v-bind:value="park.key">
         {{ park.name }}
       </option>
     </select>
@@ -16,10 +16,10 @@ import Header from './components/Header.vue'
 export default {
   name: 'app',
   data: function(){
-    const parksPreload = [{id: 1, name: 'Park One'}]
+    const parksPreload = [{key: 'ALB01', name: 'Riverside Park'}]
     return {
       parks: parksPreload,
-      selectedPark: parksPreload[0].id
+      selectedPark: parksPreload[0].key
     }
   },
   components: {
