@@ -13,3 +13,11 @@ parks_csv.each do |row|
     )
   end
 end
+
+# FOODS
+foods = %w(Seeds Grains Plants Insects)
+foods.each do |name|
+  if Food.find_by(name: name).nil?
+    Food.create!(name: name)
+  end
+end
