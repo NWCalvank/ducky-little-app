@@ -7,8 +7,11 @@ class FeedingsController < ApplicationController
 
   def create
     @new_feeding = Feeding.new(@params)
-    @new_feeding.save!
-    render json: @new_feeding
+    begin
+      @new_feeding.save!
+      render json: @new_feeding
+    rescue StandardError => e
+    end
   end
 
   private
@@ -36,6 +39,12 @@ class FeedingsController < ApplicationController
   def bad_request
     render status: :bad_request, json: {
       errors: ['Invalid Request', 'Missing one or more required fields.'],
+    }
+  end
+
+  def standard_error
+    render status: :error, json: {
+      errors: ['Server Error', 'Unable to save your record.'],
     }
   end
 end
