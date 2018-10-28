@@ -73,6 +73,8 @@
 <script>
 import axios from 'axios'
 
+const apiPath = process.env.VUE_APP_API
+
 export default {
   name: 'Form',
   props: {},
@@ -102,7 +104,7 @@ export default {
         time: this.time,
         daily: this.daily
       }
-      const res = await axios.post('http://localhost:3000/feedings', options)
+      const res = await axios.post(`${apiPath}/feedings`, options)
       if(res.status === 200) {
         this.submitted = true
         this.loading = false
@@ -114,11 +116,11 @@ export default {
   },
   mounted: async function(){
     // TODO: Make these calls in parallel
-    const parksRes = await axios.get('http://localhost:3000/parks')
+    const parksRes = await axios.get(`${apiPath}/parks`)
     this.parks = parksRes.data.records
     this.selectedPark = this.parks[0].id
 
-    const foodRes = await axios.get('http://localhost:3000/foods')
+    const foodRes = await axios.get(`${apiPath}/foods`)
     this.foods = foodRes.data.records
     this.selectedFood = this.foods[0].id
 

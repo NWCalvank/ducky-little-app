@@ -1,4 +1,16 @@
-# client
+# Server
+
+## Project setup
+```
+docker-compose up
+```
+
+### Run your tests
+```
+rails test
+```
+
+# Client
 
 ## Project setup
 ```

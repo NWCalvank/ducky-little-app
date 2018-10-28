@@ -14,6 +14,8 @@
 import Header from './components/Header.vue'
 import Form from './components/Form.vue'
 
+const apiPath = process.env.VUE_APP_API
+
 export default {
   name: 'app',
   components: {
@@ -24,7 +26,7 @@ export default {
     download: function(){
       const now = new Date(Date.now())
       const today = now.toISOString().split('T')[0]
-      window.location = `http://localhost:3000/reports?end_date=${today}`
+      window.location = `${apiPath}/reports?end_date=${today}`
     }
   }
 }
