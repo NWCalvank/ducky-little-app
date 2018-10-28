@@ -1,33 +1,30 @@
 <template>
   <div id="app">
-    <Header msg="Welcome"/>
-    <select v-model="selectedPark">
-      <option v-for="park in parks" v-bind:value="park.key">
-        {{ park.name }}
-      </option>
-    </select>
+    <Header msg="A Ducky Little App"/>
+
+    <button id="download-btn" @click="download">
+      Download Current Data
+    </button>
+
+    <Form />
   </div>
 </template>
 
 <script>
-import axios from 'axios'
 import Header from './components/Header.vue'
+import Form from './components/Form.vue'
 
 export default {
   name: 'app',
-  data: function(){
-    const parksPreload = [{key: 'ALB01', name: 'Riverside Park'}]
-    return {
-      parks: parksPreload,
-      selectedPark: parksPreload[0].key
-    }
-  },
   components: {
-    Header
+    Header,
+    Form
   },
-  mounted: async function(){
-    const { data } = await axios.get('http://localhost:3000/parks')
-    this.parks = data.records
+  methods: {
+    download: function(){
+      // TODO: append today's date dynamically
+      window.location = 'http://localhost:3000/reports?end_date=2018-10-27'
+    }
   }
 }
 </script>
