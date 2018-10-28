@@ -29,15 +29,15 @@ ActiveRecord::Schema.define(version: 2018_10_28_043740) do
   end
 
   create_table "foods", force: :cascade do |t|
-    t.string "name", default: "", null: false
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "parks", force: :cascade do |t|
-    t.string "key", default: "", null: false
-    t.string "name", default: "", null: false
-    t.string "country", default: "", null: false
+    t.string "key", null: false
+    t.string "name", null: false
+    t.string "country", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
