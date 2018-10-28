@@ -22,8 +22,9 @@ export default {
   },
   methods: {
     download: function(){
-      // TODO: append today's date dynamically
-      window.location = 'http://localhost:3000/reports?end_date=2018-10-27'
+      const now = new Date(Date.now())
+      const today = now.toISOString().split('T')[0]
+      window.location = `http://localhost:3000/reports?end_date=${today}`
     }
   }
 }
