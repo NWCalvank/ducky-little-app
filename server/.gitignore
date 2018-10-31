@@ -1,0 +1,44 @@
+# A .gitignore file for Git-based
+# Heroku deployment
+
+.DS_Store
+node_modules
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+
+# Ignore bundler config.
+.bundle
+
+# Ignore all logfiles and tempfiles.
+log/*
+tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore uploaded files in development
+storage/*
+!/storage/.keep
+
+# Ignore master key for decrypting credentials and more.
+config/master.key
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
